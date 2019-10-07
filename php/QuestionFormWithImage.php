@@ -11,24 +11,24 @@
   <section class="main" id="s1">
       
     <div class="centered" align = "left">
-        <form id='fquestion' name='fquestion' action=’AddQuestion.php’ onsubmit = "return comprobarCamposVacios()">
+        <form id='fquestion' name='fquestion' action=’AddQuestion.php’ onsubmit = "return comprobarCamposVacios() && comprobarEmail()">
             <h3>Email (*)</h3>
-            <input type = "text" name = "email" style="WIDTH: 400px">
+            <input type = "text" id = "email" name = "email" style="WIDTH: 400px">
 
             <h3>Enunciado de la pregunta (*)</h3>
-            <input type = "text" name = "enunciado" style="WIDTH: 400px">
+            <input type = "text" id = "enunciado" name = "enunciado" style="WIDTH: 400px">
 
             <h3>Respuesta correcta (*)</h3>
-            <input type = "text" name = "rescor" style="WIDTH: 400px">
+            <input type = "text" id = "rescor" name = "rescor" style="WIDTH: 400px">
 
             <h3>Respuesta incorrecta 1 (*)</h3>
-            <input type = "text" name = "respin1" style="WIDTH: 400px">
+            <input type = "text" id = "respin1" name = "respin1" style="WIDTH: 400px">
  
             <h3>Respuesta incorrecta 2 (*)</h3>
-            <input type = "text" name = "respin2" style="WIDTH: 400px">
+            <input type = "text" id = "respin2" name = "respin2" style="WIDTH: 400px">
 
             <h3>Respuesta incorrecta 3 (*)</h3>
-            <input type = "text" name = "respin3" style="WIDTH: 400px">
+            <input type = "text" id = "respin3" name = "respin3" style="WIDTH: 400px">
 
             <h3>Complejidad de la pregunta (*)</h3>
             <select>
@@ -38,7 +38,7 @@
             </select>
 
             <h3>Tema de la pregunta (*)</h3>
-            <input type = "text" name = "tema" style="WIDTH: 400px"><br>
+            <input type = "text" id = "tema" name = "tema" style="WIDTH: 400px"><br>
             
             <h3>Imagen (*)</h3>
             <input type="file" id = "foto" name="foto" onchange="mostrarImagen(this)"><br>
