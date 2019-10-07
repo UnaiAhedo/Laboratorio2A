@@ -1,5 +1,8 @@
-function comprobarEmail(input){
-    if(){
+function comprobarEmail(){
+    var re1 = /[a-z]*[A-Z]*[0-9]+[0-9]+[0-9]+@ikasle[.]ehu[.]e[u]?s/;
+    var re2 = /[a-z]*[A-Z]*[.][a-z]*[A-Z]*@ehu[.]e[u]?s/;
+    var re3 = /[a-z]*[A-Z]*@ehu[.]e[u]?s/;
+    if($('#email').val().match(re1) || $('#email').val().match(re2) || $('#email').val().match(re3)){
        return true;
     }else{
        alert("Introduce un email válido.")

@@ -9,7 +9,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div align="left">
-        <form id='fquestion' name='fquestion' action=’AddQuestion.php’ onsubmit = "return comprobarCamposVacios()">
+        <form id='fquestion' name='fquestion' action=’AddQuestion.php’ onsubmit = "return comprobarCamposVacios() && comprobarEmail()">
             <h3>Email (*)</h3>
             <input type = "text" id = "email" name = "email" style="WIDTH: 400px">
 
