@@ -7,7 +7,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div align = "left">
-      <form id='fquestion' name='fquestion' action=’AddQuestion.php’>
+      <form id = "fquestion" name = "fquestion" action = "AddQuestion.php">
             <h3>Email (*)</h3>
             <input type = "text" id = "email" name = "email" style="WIDTH: 400px" pattern = "[a-z]*[A-Z]*[0-9]+[0-9]+[0-9]+@ikasle[.]ehu[.]e[u]?s|[a-z]*[A-Z]*[.][a-z]*[A-Z]*@ehu[.]e[u]?s|[a-z]*[A-Z]*@ehu[.]e[u]?s"  title = "Introduce un correo de la universidad válido." required>
           
