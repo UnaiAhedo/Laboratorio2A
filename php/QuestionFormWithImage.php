@@ -2,9 +2,9 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
-    <script src="../JS/ShowImageInForm.js"></script>
-    <script src = "../JS/jquery-3.4.1.min.js"></script>
-    <script src= "../JS/ValidateFieldsQuestion.js"></script>
+    <script src="../js/ShowImageInForm.js"></script>
+    <script src = "../js/jquery-3.4.1.min.js"></script>
+    <script src= "../js/ValidateFieldsQuestion.js"></script>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>

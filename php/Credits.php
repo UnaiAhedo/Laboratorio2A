@@ -16,7 +16,7 @@
         <p>Ingeniería del Software</p><br>
         
         <h3>Avatar</h3>
-        <img src="../images/DV.jpg" alt="Unai Ahedo" width="300" height="200">
+        <img src="../images/DV.png" alt="Unai Ahedo">
         <p></p><br>
         
         <h3>Email de estudiante</h3>
