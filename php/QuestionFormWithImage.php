@@ -10,7 +10,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
       
-    <div class="centered" align = "left">
+    <div id = "div1" class="centered" align = "left">
         <form id= "fquestion" name = "fquestion" action = "AddQuestionWithImage.php" onsubmit = "return comprobarCamposVacios() && comprobarEmail()">
             <h3>Email (*)</h3>
             <input type = "text" id = "email" name = "email" style="WIDTH: 400px">
@@ -32,9 +32,9 @@
 
             <h3>Complejidad de la pregunta (*)</h3>
             <select>
-                <option value = "comp1">1</option>
-                <option value = "comp2">2</option>
-                <option value = "comp3">3</option>
+                <option value = "comp1">Baja</option>
+                <option value = "comp2">Media</option>
+                <option value = "comp3">Alta</option>
             </select>
 
             <h3>Tema de la pregunta (*)</h3>
@@ -42,9 +42,8 @@
             
             <h3>Imagen (*)</h3>
             <input type="file" id = "foto" name="foto" onchange="mostrarImagen(this)"><br>
-            <img id="fotomostrar" style="display: none;" width = "100px" height = "100px"><br>
             
-            <input type = "submit" value = "Enviar">
+            <input id = "enviar" type = "submit" value = "Enviar">
         </form>
     </div>
   </section>

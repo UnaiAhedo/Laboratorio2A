@@ -30,9 +30,9 @@
 
             <h3>Complejidad de la pregunta (*)</h3>
             <select>
-                <option value = "comp1">1</option>
-                <option value = "comp2">2</option>
-                <option value = "comp3">3</option>
+                <option value = "comp1">Baja</option>
+                <option value = "comp2">Media</option>
+                <option value = "comp3">Alta</option>
             </select>
 
             <h3>Tema de la pregunta (*)</h3>
