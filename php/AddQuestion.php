@@ -5,15 +5,13 @@
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
+
   <section class="main" id="s1">
     <div>
         <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "QUIZZ";
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            include 'DbConfig.php';
+    
+            $conn = new mysqli($server, $user, $pass, $basededatos);
     
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);

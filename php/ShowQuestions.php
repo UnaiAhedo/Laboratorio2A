@@ -15,16 +15,14 @@
                 <th>Tema</th>
             </tr>
             <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "QUIZZ";
+                include 'DbConfig.php';
     
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                $conn = new mysqli($server, $user, $pass, $basededatos);
                 
                 if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+                    die("Connection failed: " . $conn->connect_error);
                 }
+    
                 $sql = "SELECT email, enunciado, rescor, tema FROM preguntas";
                 $result = $conn->query($sql);
                 if ($result->num_rows > 0) {
