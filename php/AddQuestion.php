@@ -17,7 +17,16 @@
                 die("Connection failed: " . $conn->connect_error);
             }
     
-            $sql = "INSERT INTO PREGUNTAS VALUES ('','".$_POST["email"]."','".$_POST["enunciado"]."','".$_POST["rescor"]."','".$_POST["respin1"]."','".$_POST["respin2"]."','".$_POST["respin3"]."','".$_POST["complejidad"]."','".$_POST["tema"]."')";
+            $email = $_REQUEST["email"];
+            $enunciado = $_REQUEST["enunciado"];
+            $rescor = $_REQUEST["rescor"];
+            $respin1 = $_REQUEST["respin1"];
+            $respin2 = $_REQUEST["respin2"];
+            $respin3 = $_REQUEST["respin3"];
+            $complejidad = $_REQUEST["complejidad"];
+            $tema = $_REQUEST["tema"];
+    
+            $sql = "INSERT INTO preguntas VALUES ('', '$email', '$enunciado', '$rescor', '$respin1', '$respin2', '$respin3', '$complejidad', '$tema')";
 
             if ($conn->query($sql) === TRUE) {
                 echo "Se ha añadido una nueva pregunta.";

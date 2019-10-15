@@ -11,7 +11,7 @@
   <section class="main" id="s1">
       
     <div id = "div1" class="centered" align = "left">
-        <form id= "fquestion" name = "fquestion" action = "AddQuestionWithImage.php" onsubmit = "return comprobarCamposVacios() && comprobarEmail()">
+        <form id= "fquestion" method = "post" enctype = "multipart/form-data" name = "fquestion" action = "AddQuestionWithImage.php" onsubmit = "return comprobarCamposVacios() && comprobarEmail()">
             <h3>Email (*)</h3>
             <input type = "text" id = "email" name = "email" style="WIDTH: 400px">
 
@@ -31,17 +31,17 @@
             <input type = "text" id = "respin3" name = "respin3" style="WIDTH: 400px">
 
             <h3>Complejidad de la pregunta (*)</h3>
-            <select>
-                <option value = "comp1">Baja</option>
-                <option value = "comp2">Media</option>
-                <option value = "comp3">Alta</option>
+            <select name = "complejidad">
+                <option value = "1">Baja</option>
+                <option value = "2">Media</option>
+                <option value = "3">Alta</option>
             </select>
 
             <h3>Tema de la pregunta (*)</h3>
             <input type = "text" id = "tema" name = "tema" style="WIDTH: 400px"><br>
             
             <h3>Imagen (*)</h3>
-            <input type="file" id = "foto" name="foto" onchange="mostrarImagen(this)"><br>
+            <input type="file" id = "foto" class = "form-control" name = "foto" onchange = "mostrarImagen(this)"><br>
             
             <input id = "enviar" type = "submit" value = "Enviar">
         </form>
