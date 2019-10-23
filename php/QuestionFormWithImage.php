@@ -7,13 +7,12 @@
     <script src= "../js/ValidateFieldsQuestion.js"></script>
 </head>
 <body>
-  <?php include '../php/Menus.php' ?>
+  <?php include '../php/Menus.php'?>
   <section class="main" id="s1">
-      
     <div id = "div1" class="centered" align = "left">
-        <form id= "fquestion" method = "post" enctype = "multipart/form-data" name = "fquestion" action = "AddQuestionWithImage.php" onsubmit = "return comprobarCamposVacios() && comprobarEmail()">
+        <form id= "fquestion" method = "post" enctype = "multipart/form-data" name = "fquestion" action = "AddQuestionWithImage.php">
             <h3>Email (*)</h3>
-            <input type = "text" id = "email" name = "email" style="WIDTH: 400px">
+            <input type = "text" id = "emailPre" name = "emailPre" style="WIDTH: 400px" style="opacity:0.5;" readonly="readonly">
 
             <h3>Enunciado de la pregunta (*)</h3>
             <input type = "text" id = "enunciado" name = "enunciado" style="WIDTH: 400px">

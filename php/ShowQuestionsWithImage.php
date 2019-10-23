@@ -2,19 +2,21 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+    <script src = "../js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-        <?php
+        <?php    
             include 'DbConfig.php';
-
+    
             $conn = new mysqli($server, $user, $pass, $basededatos);
             if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
             }
-            $sql = "SELECT email, enunciado, rescor, tema, foto FROM preguntasfoto";
+            $email = $_GET['email'];
+            $sql = "SELECT email, enunciado, rescor, tema, foto FROM preguntasfoto where email='$email'";
             $result = $conn->query($sql);
             echo "<table border='1'>
                 <tr>
@@ -30,7 +32,7 @@
                 echo "<td>".$row["enunciado"]."</td>";
                 echo "<td>".$row["rescor"]."</td>";
                 echo "<td>".$row["tema"]."</td>";    
-                echo "<td>" . '<img src="data:image/*;base64,'.$row["foto"].'"/>' . "</td>";
+                echo "<td>" . '<img width = "100px" height = "100px" alt = "La imagen no se ha podido cargar." src="data:image/*;base64,'.$row["foto"].'"/>' . "</td>";
                 echo "</tr>";
             }            
             echo "</table>";

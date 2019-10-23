@@ -2,6 +2,7 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+    <script src = "../js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
@@ -21,6 +22,7 @@
         
         <h3>Email de estudiante</h3>
         <p>uahedo002@ikasle.ehu.eus</p><br>
+        
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
