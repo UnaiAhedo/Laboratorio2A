@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src = "../js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="../js/GetUserInfo.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <h1 align = "center">Datos alumno</h1>
+        <br>
+    </head>
+    <body>
+        <div align = "center">  
+            <h3>Introduce el email</h3>
+            <input id = "email" name = "email" style = "WIDTH: 300px">
+            <p></p><br>
+            
+            <h3>Nombre</h3>
+            <input id = "nombre" name = "nombre" readonly style = "WIDTH: 300px">
+            <p></p><br>
+            
+            <h3>Apellidos</h3> 
+            <input id = "apellidos" name = "apellidos" readonly style = "WIDTH: 300px">
+            <p></p><br>
+            
+            <h3>Telefono</h3>
+            <input id = "tel" name = "tel" readonly style = "WIDTH: 300px">
+            <p></p><br>
+            <button class="btn btn-secondary" onclick = "rellenarDatos(email.value)">Rellenar datos</button>
+        </div>  
+    </body>
+</html>

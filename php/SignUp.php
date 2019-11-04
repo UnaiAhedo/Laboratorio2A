@@ -37,7 +37,7 @@
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                
+                     
                 $email = $_REQUEST["emailR"]; 
                 $nombre = $_REQUEST["nombre"];
                 $contra = $_REQUEST["contra"];
@@ -45,6 +45,10 @@
                 $alumpro = $_REQUEST["usuario"];
                 $imagen = base64_encode(@file_get_contents($_FILES["fotoUsuario"]["tmp_name"]));
                 
+                $sql = "SELECT email FROM usuario where email = '$email'";
+                $result = $conn->query($sql);
+                $row = mysqli_fetch_array($result);
+
                 if($email == '' || $nombre == '' || $contra == '' || $alumpro == ''){
                     echo "Algún campo está vacío.";
                 } else if(preg_match('/[a-z]*[A-Z]*[0-9]+[0-9]+[0-9]+@ikasle[.]ehu[.]e[u]?s/',$email) == 0 && preg_match('/[a-z]*[A-Z]*[.][a-z]*[A-Z]*@ehu[.]e[u]?s/',$email) == 0 && preg_match('/[a-z]*[A-Z]*@ehu[.]e[u]?s/',$email) == 0){
@@ -54,11 +58,13 @@
                 }else if($contra != $contraRep){
                     echo "<br>Las contraseñas no coinciden.";
                 }else if(str_word_count($nombre, 0) < 2){
-                    echo "<br>Introduce nombre y apellido";
+                    echo "<br>Introduce nombre y apellido.";
                 }else if(preg_match('/[a-z]*[A-Z]*[0-9]+[0-9]+[0-9]+@ikasle[.]ehu[.]e[u]?s/',$email) == 1 && $alumpro == 'profesor'){
                     echo "<br>El email no coincide con el usuario escogido.";
                 }else if((preg_match('/[a-z]*[A-Z]*[.][a-z]*[A-Z]*@ehu[.]e[u]?s/',$email) == 1 || preg_match('/[a-z]*[A-Z]*@ehu[.]e[u]?s/',$email) == 1) && $alumpro == 'alumno'){
                     echo "<br>El email no coincide con el usuario escogido.";
+                }else if(!empty($row)){
+                    echo "<br>El email introducido ya ha sido registrado.";
                 }else{
                     $sql = "INSERT INTO usuario VALUES ('$email', '$nombre', '$contra', '$alumpro', '$imagen')";
                     if ($conn->query($sql) === TRUE) {
