@@ -12,11 +12,16 @@
         $sql = "SELECT foto FROM usuario where email='$emailUs'";
         $result = $conn->query($sql);
         $row = mysqli_fetch_array($result);
-        $funcion = 'data:image/*;base64,' . $row[0];
+        if($row[0] == ''){
+            $funcion = '../images/usu.png';
+        }else{
+            $funcion = 'data:image/*;base64,' . $row[0];
+        }
+        
         echo "
         <header class='main' id='h1'>
             <span class='right' id = 'botLogOut'><a href='LogOut.php'>Logout</a></span>
-            <span class='right'><img width = '100px' src = '$funcion' height = '100px' id = 'imagenMenu' alt = 'No se ha podido cargar la iamgen de perfil.'></span>
+            <span class='right'><img width = '100px' src = '$funcion' height = '100px' id = 'imagenMenu' alt = 'No se ha podido cargar la imagen de perfil.'></span>
             <p id = 'texUs'>$emailUs</p>
             </header>";
         echo "<script>

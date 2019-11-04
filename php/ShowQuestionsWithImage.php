@@ -27,13 +27,20 @@
                     <th>Foto</th>
                 </tr>";
             while($row = mysqli_fetch_array($result)){
+                $imagen = $row["foto"];
                 echo "<tr>";
                 echo "<td>".$row["email"]. "</td>";
                 echo "<td>".$row["enunciado"]."</td>";
                 echo "<td>".$row["rescor"]."</td>";
-                echo "<td>".$row["tema"]."</td>";    
-                echo "<td>" . '<img width = "100px" height = "100px" alt = "La imagen no se ha podido cargar." src="data:image/*;base64,'.$row["foto"].'"/>' . "</td>";
+                echo "<td>".$row["tema"]."</td>";
+                if($row["foto"] == ''){
+                    echo "<td>" . '<img width = "100px" height = "100px" src="../images/fondo.png"/>' . "</td>";
+                }else{
+                    echo "<td>" . '<img width = "100px" height = "100px" src="data:image/*;base64,'.$imagen.'"/>' . "</td>";
+                }
+                
                 echo "</tr>";
+                
             }            
             echo "</table>";
         $conn->close();

@@ -11,7 +11,6 @@
   <section class="main" id="s1">
     <div id = "div1" class="centered" align = "left">
         <form id= "fquestion" method = "post" enctype = "multipart/form-data" name = "fquestion" action = "AddQuestionWithImage.php">
-            <script>$emailUs = $_GET['email'];</script>
             <h3>Email (*)</h3>
             <input type = "text" id = "emailPre" name = "emailPre" style="WIDTH: 400px" style="opacity:0.5;" readonly="readonly">
 
@@ -29,7 +28,6 @@
 
             <h3>Respuesta incorrecta 3 (*)</h3>
             <input type = "text" id = "respin3" name = "respin3" style="WIDTH: 400px">
-            <script>$('#emailPre').attr('value',$emailUs)</script>
             <h3>Complejidad de la pregunta (*)</h3>
             <select name = "complejidad">
                 <option value = "1">Baja</option>
