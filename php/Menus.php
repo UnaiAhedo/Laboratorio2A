@@ -48,9 +48,7 @@
         echo "
         <nav class='main' id='n1' role='navigation'>
           <span><a id = 'verL' href='Layout.php?email=$emailUs'>Inicio</a></span>
-          <span><a id = 'inserP' href='QuestionFormWithImage.php?email=$emailUs'> Insertar Pregunta</a></span>
-          <span><a id = 'verP' href='ShowQuestionsWithImage.php?email=$emailUs'> Ver preguntas</a></span>
-          <span><a id = 'verPXML' href='ShowXmlQuestions.php?email=$emailUs'> Ver preguntas XML</a></span>
+          <span><a id = 'inserP' href='HandlingQuizesAjax.php?email=$emailUs'>Gestionar preguntas</a></span>
           <span><a id ='verC' href='Credits.php?email=$emailUs'>Creditos</a></span>
           </nav>";
     }else{

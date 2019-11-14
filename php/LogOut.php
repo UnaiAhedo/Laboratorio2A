@@ -10,7 +10,7 @@
          <?php
             echo "<script>
                     alert('Adios, vuelve pronto.');
-                    window.location.href='Layout.php';    
+                    window.location.href='DecreaseGlobalCounter.php';    
                 </script>";
         ?>
     </div>

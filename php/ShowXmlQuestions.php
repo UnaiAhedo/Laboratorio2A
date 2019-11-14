@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <?php include '../html/Head.html'?>
+<!--  <?php include '../html/Head.html'?>-->
     <script src = "../js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-  <?php include '../php/Menus.php' ?>
+<!--  <?php include '../php/Menus.php' ?>-->
 
   <section class="main" id="s1">
     <div>   
@@ -26,6 +26,6 @@
         </table>
     </div>
   </section>
-  <?php include '../html/Footer.html' ?>
+<!--  <?php include '../html/Footer.html' ?>-->
 </body>
 </html>

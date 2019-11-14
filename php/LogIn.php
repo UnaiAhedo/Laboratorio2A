@@ -35,7 +35,7 @@
                 if($cont==1){
                     echo "<script>
                             alert('Bienvenido al sistema: ". $username . "');
-                            window.location.href='Layout.php?email=$username';   
+                            window.location.href='IncreaseGlobalCounter.php?email=$username';   
                         </script>";
                 }else {
                     echo("Par&aacute;metros de login incorrectos ");
