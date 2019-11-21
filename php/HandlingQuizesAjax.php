@@ -76,7 +76,7 @@
             <h3>Imagen (*)</h3>
             <input type="file" id = "foto" class = "form-control" name = "foto" onchange = "mostrarImagenAjax(this)"><br>
             <br>
-            <input type = "button" id = "addAjax" value = "Insertar pregunta" onclick = "addAjaxQues();mostrarPreguntas()">
+            <input type = "button" id = "addAjax" value = "Insertar pregunta" onclick = "addAjaxQues()">
             <input type = "button" id = "showInAjax "value = "Mostrar preguntas" onclick = "mostrarPreguntas()">
             <input type = "button" id = "cleanAjax" value = "Limpiar campos" onclick = "limpiar()">
         </form>

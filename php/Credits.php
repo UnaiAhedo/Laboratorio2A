@@ -7,6 +7,7 @@
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
+
     <div>
         <h2>DATOS DEL AUTOR/AUTORES</h2><br>
         
@@ -23,7 +24,8 @@
         <h3>Email de estudiante</h3>
         <p>uahedo002@ikasle.ehu.eus</p><br>
         
-    </div>
+        
+    </div>   
   </section>
   <?php include '../html/Footer.html' ?>
 </body>

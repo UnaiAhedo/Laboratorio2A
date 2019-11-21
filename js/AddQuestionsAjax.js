@@ -10,6 +10,7 @@ function addAjaxQues(){
        success: function(data)
        {
            $('#mensajeSer').html(data);
+           mostrarPreguntas();
        }
      });
 }

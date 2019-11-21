@@ -4,6 +4,7 @@
   <?php include '../html/Head.html'?>
     <script src="../js/ShowImageInForm.js"></script>
     <script src = "../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/AJAXLab6.js"></script>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
@@ -14,12 +15,13 @@
             <input type = "radio" name = "usuario" value = "alumno" checked> Alumno
             <input type = "radio" name = "usuario" value = "profesor"> Profesor</p>
 
-            <p><b>Email* : </b><input type = "text" id = "emailR" name = "emailR" style = "WIDTH: 300px"></p>
-
+            <p><b>Email* : </b><input type = "text" id = "emailR" name = "emailR" style = "WIDTH: 300px" onchange = "emailVIP(this.value)"></p>
+            <p id = "valEmail" name = "valEmail"></p>
+            
             <p><b>Nombre y apellidos* : </b><input type = "text" name = "nombre" style = "WIDTH: 300px"></p>
-
-            <p><b>Contraseña* : </b><input type = "password" name = "contra" style = "WIDTH: 300px"></p>
-
+            
+            <p><b>Contraseña* : </b><input type = "password" name = "contra" style = "WIDTH: 300px" onchange = "contraVal(this.value)"></p>
+            <p id = "valCon" name = "valCon"></p>
             <p><b>Repetir contraseña* : </b><input type = "password" name = "contraRep" style = "WIDTH: 300px"></p>
 
             <p><b>Imagen : </b></p>
@@ -45,10 +47,12 @@
                 $alumpro = $_REQUEST["usuario"];
                 $imagen = base64_encode(@file_get_contents($_FILES["fotoUsuario"]["tmp_name"]));
                 
+                include 'ClientVerifyEnrollment.php';
+                
                 $sql = "SELECT email FROM usuario where email = '$email'";
                 $result = $conn->query($sql);
                 $row = mysqli_fetch_array($result);
-
+                
                 if($email == '' || $nombre == '' || $contra == '' || $alumpro == ''){
                     echo "Algún campo está vacío.";
                 } else if(preg_match('/[a-z]*[A-Z]*[0-9]+[0-9]+[0-9]+@ikasle[.]ehu[.]e[u]?s/',$email) == 0 && preg_match('/[a-z]*[A-Z]*[.][a-z]*[A-Z]*@ehu[.]e[u]?s/',$email) == 0 && preg_match('/[a-z]*[A-Z]*@ehu[.]e[u]?s/',$email) == 0){
@@ -65,7 +69,11 @@
                     echo "<br>El email no coincide con el usuario escogido.";
                 }else if(!empty($row)){
                     echo "<br>El email introducido ya ha sido registrado.";
-                }else{
+                }else if($resultaSOAPEmail = 'NO'){
+                    echo "<br>No se ha realizado el registro porque el email no era VIP.";
+                }else if($resultaSOAPCont = 'INVALIDA'){
+                    echo "<br>No se ha realizado el registro porque la contraseña no era válida.";
+                }else{  
                     $sql = "INSERT INTO usuario VALUES ('$email', '$nombre', '$contra', '$alumpro', '$imagen')";
                     if ($conn->query($sql) === TRUE) {
                         echo "<script>
