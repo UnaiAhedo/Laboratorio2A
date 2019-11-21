@@ -33,3 +33,14 @@ function contraVal(id) {
         }
     });
 };
+
+function getPregunta(id) {
+    $.ajax({
+        type: "GET",
+        url: "GetQuestion.php",
+        data: "id=" + id,
+        success: function(result) {
+            $('#mosPre').html(result);
+        }
+    });
+};
