@@ -51,7 +51,7 @@
                 
                 $sql = "SELECT email FROM usuario where email = '$email'";
                 $result = $conn->query($sql);
-                $row = mysqli_fetch_array($result);
+                $row = mysqli_fetch_array($result); 
                 
                 if($email == '' || $nombre == '' || $contra == '' || $alumpro == ''){
                     echo "Algún campo está vacío.";
@@ -69,12 +69,9 @@
                     echo "<br>El email no coincide con el usuario escogido.";
                 }else if(!empty($row)){
                     echo "<br>El email introducido ya ha sido registrado.";
-                }else if($resultaSOAPEmail = 'NO'){
-                    echo "<br>No se ha realizado el registro porque el email no era VIP.";
-                }else if($resultaSOAPCont = 'INVALIDA'){
-                    echo "<br>No se ha realizado el registro porque la contraseña no era válida.";
-                }else{  
-                    $sql = "INSERT INTO usuario VALUES ('$email', '$nombre', '$contra', '$alumpro', '$imagen')";
+                }else{
+                    $contraCrip = crypt($contra, '0c');
+                    $sql = "INSERT INTO usuario VALUES ('$email', '$nombre', '$contraCrip','activada', '$alumpro', '$imagen')";
                     if ($conn->query($sql) === TRUE) {
                         echo "<script>
                         alert('Se ha realizado el registro correctamente.');
@@ -83,6 +80,7 @@
                     } else {
                         echo "Error: " . $sql . "<br>" . $conn->error;
                     }
+                    $conn->close();
                 }     
             }
         ?>

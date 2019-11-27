@@ -1,3 +1,4 @@
+<?php include ("seguridad.php"); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,13 +6,18 @@
     </head>
     <body>
         <?php
-            $username = $_GET['email'];  
-            $xml = simplexml_load_file('../xml/Counter.xml');
-            $xml->cont = $xml->cont + 1;
-            $xml->saveXML('../xml/Counter.xml');
-            echo "<script>
-                    window.location.href='Layout.php?email=$username';  
+            if($_SESSION["adUs"] != "user"){
+                echo "<script>
+                        window.location.href='Layout.php';  
                 </script>";
+            }else{
+                $xml = simplexml_load_file('../xml/Counter.xml');
+                $xml->cont = $xml->cont + 1;
+                $xml->saveXML('../xml/Counter.xml');
+                echo "<script>
+                        window.location.href='Layout.php';  
+                </script>";
+            }
         ?>
     </body>
 </html>

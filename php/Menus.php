@@ -1,10 +1,15 @@
+<?php
+    if(!isset($_SESSION)){
+        session_start();
+    }
+?>
 <div id='page-wrap'>
 <script src = "../js/jquery-3.4.1.min.js"></script>
     
 <?php
     include 'DbConfig.php';
-    if (isset($_GET['email'])){
-        $emailUs = $_GET['email'];
+    if (isset($_SESSION['email'])){
+        $emailUs = $_SESSION['email'];
         $conn = new mysqli($server, $user, $pass, $basededatos);
         if ($conn->connect_error) {
              die("Connection failed: " . $conn->connect_error);
@@ -43,15 +48,25 @@
 ?>   
 <?php
     include 'DbConfig.php';
-    if (isset($_GET['email'])){
-        $emailUs = $_GET['email'];
-        echo "
-        <nav class='main' id='n1' role='navigation'>
-          <span><a id = 'verL' href='Layout.php?email=$emailUs'>Inicio</a></span>
-          <span><a id = 'inserP' href='HandlingQuizesAjax.php?email=$emailUs'>Gestionar preguntas</a></span>
-          <span><a id = 'inserP' href='ClientGetQuestion.php?email=$emailUs'>Información pregunta</a></span>
-          <span><a id ='verC' href='Credits.php?email=$emailUs'>Creditos</a></span>
-          </nav>";
+
+    if(isset($_SESSION["email"])){
+        $var = $_SESSION["adUs"];
+        if($var == "user"){
+            echo "
+            <nav class='main' id='n1' role='navigation'>
+              <span><a id = 'verL' href='Layout.php'>Inicio</a></span>
+              <span><a id = 'inserP' href='HandlingQuizesAjax.php'>Gestionar preguntas</a></span>
+              <span><a id = 'inserP' href='ClientGetQuestion.php'>Información pregunta</a></span>
+              <span><a id ='verC' href='Credits.php'>Creditos</a></span>
+              </nav>";
+        }else{
+             echo "
+            <nav class='main' id='n1' role='navigation'>
+              <span><a id = 'verL' href='Layout.php'>Inicio</a></span>
+              <span><a id = 'inserP' href='HandlingAccounts.php'>Administrar Usuarios</a></span>
+              <span><a id ='verC' href='Credits.php'>Creditos</a></span>
+              </nav>";
+        }
     }else{
         echo "
         <nav class='main' id='n1' role='navigation'>

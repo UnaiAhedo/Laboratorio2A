@@ -1,3 +1,13 @@
+<?php include ("seguridad.php"); ?>
+<?php
+    if($_SESSION["adUs"] != "user"){
+        echo "<script>
+                    alert('Esta página solo es accesible para los alumnos y profesores.');
+                    window.location.href='Layout.php';    
+                </script>";
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>

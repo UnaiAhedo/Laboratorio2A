@@ -1,3 +1,4 @@
+<?php include ("seguridad.php"); ?>
 <?php
     require_once('../lib/nusoap.php');
     require_once('../lib/class.wsdlcache.php');
